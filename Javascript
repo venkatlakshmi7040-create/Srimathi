@@ -1,0 +1,35 @@
+// Get all game cards
+const gameCards = document.querySelectorAll('.game-card');
+
+// Add event listener to each game card
+gameCards.forEach((card) => {
+  card.addEventListener('click', () => {
+    // Get game details
+    const gameTitle = card.querySelector('h2').textContent;
+    const gameDescription = card.querySelector('p').textContent;
+
+    // Display game details
+    console.log(`Game Title: ${gameTitle}`);
+    console.log(`Game Description: ${gameDescription}`);
+  });
+});
+
+// Navigation menu toggle
+const navToggle = document.querySelector('.nav-toggle');
+const navMenu = document.querySelector('header nav ul');
+
+navToggle.addEventListener('click', () => {
+  navMenu.classList.toggle('active');
+});
+
+// Smooth scrolling for anchor links
+const anchorLinks = document.querySelectorAll('a[href*="#"]');
+
+anchorLinks.forEach((link) => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const targetId = link.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+    targetElement.scrollIntoView({ behavior: 'smooth' });
+  });
+});
